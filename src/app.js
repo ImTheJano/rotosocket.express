@@ -4,7 +4,7 @@ const app = express()
 const SocketIO = require('socket.io')
 const axios = require('axios')
 var cors = require('cors')
-app.use(cors())
+
 
 //settings
 app.set('port', process.env.PORT || 3000)
@@ -60,4 +60,12 @@ io.on('connection', ( socket )=> {
 			default: console.log(); break;
 		}
 	})
+
+	socket.on("sfd",(datos)=>{
+        socket.broadcast.emit("sfd"+datos.device,datos);        
+    })
+    socket.on("sytesa_error",(datos)=>{
+        socket.broadcast.emit("sytesa_error",datos);
+    })
+
 })
