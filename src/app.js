@@ -3,7 +3,8 @@ const express = require('express')
 const app = express()
 const SocketIO = require('socket.io')
 const axios = require('axios')
-
+var cors = require('cors')
+app.use(cors())
 
 //settings
 app.set('port', process.env.PORT || 3000)
