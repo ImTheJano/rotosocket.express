@@ -16,6 +16,7 @@ const io = SocketIO(server)
 
 //websockets
 io.on('connection', ( socket )=> {
+	console.log(socket.id + ' is connected');
 	io.to(socket.conn.id).emit('auth')
 	socket.on('auth', async (args)=> {
 		console.log('client responsed auth');
