@@ -52,6 +52,8 @@ io.on('connection', ( socket )=> {
 					var {data} = await axios.get(process.env.NIVEL_API + 'user/me', {headers})
 					user = data.user
 					if(user.email == 'rotosocket@nivel.com'){
+						console.log('api conected to socket: ');
+						console.log(socket);
 						socket.on('nivel:new_sfdata', (args)=> {
 							io.to(args.to).emit('nivel:new_sfdata', args.message)
 						})
