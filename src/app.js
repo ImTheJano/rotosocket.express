@@ -42,7 +42,7 @@ io.on('connection', ( socket )=> {
 							io.to(args.to).emit('level:new_sfdata', args.message)
 						})
 					}
-				} catch (error) {console.error('error')}
+				} catch (error) {console.error(error)}
 			} break;
 			default: console.log(); break;
 		}
